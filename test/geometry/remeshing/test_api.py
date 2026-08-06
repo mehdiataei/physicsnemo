@@ -36,8 +36,12 @@ def test_remesh_public_signatures():
         "mesh",
         "n_clusters",
         "max_iterations",
+        "transfer_point_data",
+        "resolution_field",
     )
     assert remesh_signature.parameters["max_iterations"].default == 4
+    assert remesh_signature.parameters["transfer_point_data"].default is False
+    assert remesh_signature.parameters["resolution_field"].default is None
     assert get_type_hints(remesh)["mesh"] is Mesh
 
 

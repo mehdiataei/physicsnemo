@@ -221,7 +221,7 @@ Runnable Jupyter notebook tutorials are available in ``examples/minimal/mesh/``:
 API Reference
 -------------
 
-Deformation, deformation-energy, and uniform-remeshing operations that accept
+Deformation, deformation-energy, and surface-remeshing operations that accept
 Mesh objects are documented separately under :doc:`../geometry/index`.
 
 .. toctree::
