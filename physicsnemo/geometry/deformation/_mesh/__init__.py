@@ -20,5 +20,12 @@ from .displace import displace
 from .ffd import free_form_deform
 from .morph import morph
 from .rbf import radial_basis_function_deform
+from .shrinkwrap import shrinkwrap
 
-__all__ = ["displace", "free_form_deform", "morph", "radial_basis_function_deform"]
+__all__ = [
+    "displace",
+    "free_form_deform",
+    "morph",
+    "radial_basis_function_deform",
+    "shrinkwrap",
+]

@@ -14,20 +14,30 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-"""Mesh-aware deformation operations."""
+"""Warp kernels for shrinkwrap nearest-face searches."""
 
-from ._mesh import (
-    displace,
-    free_form_deform,
-    morph,
-    radial_basis_function_deform,
-    shrinkwrap,
-)
+import warp as wp
 
-__all__ = [
-    "displace",
-    "free_form_deform",
-    "morph",
-    "radial_basis_function_deform",
-    "shrinkwrap",
-]
+
+@wp.kernel
+def nearest_surface_faces_kernel(
+    mesh_id: wp.uint64,
+    query_points: wp.array(dtype=wp.vec3f),
+    max_distance: wp.array(dtype=wp.float32),
+    face_ids: wp.array(dtype=wp.int64),
+):
+    """Return the closest triangle index for every query point."""
+
+    query_index = wp.tid()
+    query = wp.mesh_query_point_no_sign(
+        mesh_id,
+        query_points[query_index],
+        max_distance[0],
+    )
+    if query.result:
+        face_ids[query_index] = wp.int64(query.face)
+    else:
+        face_ids[query_index] = wp.int64(-1)
+
+
+__all__ = ["nearest_surface_faces_kernel"]

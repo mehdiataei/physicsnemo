@@ -21,6 +21,7 @@ from .deformation import (
     free_form_deform,
     morph,
     radial_basis_function_deform,
+    shrinkwrap,
 )
 from .energies import (
     closed_surface_volume_energy,
@@ -39,6 +40,7 @@ __all__ = [
     "morph",
     "radial_basis_function_deform",
     "remesh",
+    "shrinkwrap",
     "simplex_inversion_energy",
     "simplex_measure_energy",
     "simplex_strain_energy",
