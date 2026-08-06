@@ -61,6 +61,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   ``physicsnemo.geometry.displace`` and Torch/NVIDIA Warp compact
   sparse-control ``morph_points`` / ``physicsnemo.geometry.morph``. The
   Geometry adapters accept Mesh and, where applicable, DomainMesh inputs.
+- Adds differentiable Sobolev mesh deformation through
+  ``sobolev_deform_points`` and the Mesh-aware
+  ``physicsnemo.geometry.sobolev_deform``. A matrix-free, uniform-mass P1
+  Helmholtz solve smooths dense per-vertex displacements and their adjoints,
+  with optional fixed-point constraints. Torch and CUDA Warp backends provide
+  explicit implicit-adjoint differentiation.
 - Adds thin-plate-spline radial-basis deformation through
   `radial_basis_function_deform_points` and
   `physicsnemo.geometry.radial_basis_function_deform` for Mesh or

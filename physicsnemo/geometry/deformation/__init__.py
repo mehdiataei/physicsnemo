@@ -16,11 +16,18 @@
 
 """Mesh-aware deformation operations."""
 
-from ._mesh import displace, free_form_deform, morph, radial_basis_function_deform
+from ._mesh import (
+    displace,
+    free_form_deform,
+    morph,
+    radial_basis_function_deform,
+    sobolev_deform,
+)
 
 __all__ = [
     "displace",
     "free_form_deform",
     "morph",
     "radial_basis_function_deform",
+    "sobolev_deform",
 ]

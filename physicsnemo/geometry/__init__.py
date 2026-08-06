@@ -21,6 +21,7 @@ from .deformation import (
     free_form_deform,
     morph,
     radial_basis_function_deform,
+    sobolev_deform,
 )
 from .energies import (
     closed_surface_volume_energy,
@@ -42,6 +43,7 @@ __all__ = [
     "simplex_inversion_energy",
     "simplex_measure_energy",
     "simplex_strain_energy",
+    "sobolev_deform",
     "surface_bending_energy",
     "total_measure_energy",
 ]
